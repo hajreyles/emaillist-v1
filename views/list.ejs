@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>To Do List</title>
 </head>
 
@@ -21,46 +22,49 @@ when it is js it does need <%  %> to the start and end of the lines-->
 
     <table class="table">
         <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Email</th>
-          </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+            </tr>
         </thead>
         <tbody>
-        <% for (let i = 0; i < newListItems.length; i++) {  %>
-          <tr>
-            <th scope="row"><%=i+1%></th>
-            <td><%= newListItems[i].name %></td>
-            <td><%= newListItems[i].surname %></td>
-            <td><%= newListItems[i].email %></td>
-          </tr>
-          <% } %>
+            <% for (let i = 0; i < newListItems.length; i++) {  %>
+            <tr>
+                <th scope="row"><%=i+1%></th>
+                <td><%= newListItems[i].name %></td>
+                <td><%= newListItems[i].surname %></td>
+                <td><%= newListItems[i].email %></td>
+            </tr>
+            <% } %>
         </tbody>
-      </table>
+    </table>
 
-      <form action="/" method="post">
+    <form action="/" method="post">
         <div class="form-group">
-          <label for="exampleInputEmail1">Name</label>
-          <input type="text" class="form-control" name="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="text" class="form-control" name="exampleInputName" aria-describedby="emailHelp"
+                placeholder="Enter name">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Surname</label>
-            <input type="text" class="form-control" name="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname">
-          </div>
-          <div class="form-group">
+            <input type="text" class="form-control" name="exampleInputSurname" aria-describedby="emailHelp"
+                placeholder="Enter surname">
+        </div>
+        <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" name="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" name="exampleInputEmail" aria-describedby="emailHelp"
+                placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-          </div>
-        
+        </div>
+
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+    </form>
 
 </body>
 
