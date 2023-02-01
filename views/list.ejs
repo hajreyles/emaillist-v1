@@ -5,31 +5,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>To Do List</title>
 </head>
 
 <body>
 
     <!-- Logs the date from app.js file. -->
-    <h1> <%= uppertitle %> </h1>
+
     <h1> <%= kindOfDay %> </h1>
 
     <!-- Writing EJS: when its html file it does not need <%  %> 
 when it is js it does need <%  %> to the start and end of the lines-->
 
-    <ul>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
         <% for (let i = 0; i < newListItems.length; i++) {  %>
-        <li><%= newListItems[i] %></li>
-        <% } %>
-    </ul>
+          <tr>
+            <th scope="row"><%=i+1%></th>
+            <td><%= newListItems[i].name %></td>
+            <td><%= newListItems[i].surname %></td>
+            <td><%= newListItems[i].email %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
 
-    <form class="" action="/" method="post">
-
-        <input type="text" name="newItem">
-
-        <button type="submit" name="button">Add</button>
+      <form action="/" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input type="text" class="form-control" name="exampleInputName" aria-describedby="emailHelp" placeholder="Enter name">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Surname</label>
+            <input type="text" class="form-control" name="exampleInputSurname" aria-describedby="emailHelp" placeholder="Enter surname">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" name="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
         
-    </form>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
 
 </body>
 

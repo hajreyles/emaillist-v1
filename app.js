@@ -1,13 +1,23 @@
 //jshint esversion:6
 
+
 const express = require("express");
 const bodyParser = require('body-parser');
-
 const app = express();
+const {Data} = require('dataclass');
 
-let items = ["Buy Food", "Cook Food", "Eat Food", "Sell Food"];
+class User extends Data {
+    name = "Anon";
+    surname = "Eyles"
+    email = "anoneyles@email.com";
+  }
 
-let hze = "Hacer Zeynep Karaosmanoglu"
+
+
+let item1 = User.create({ name: "Liza", surname: "Jobs", email: "lizajobs@gmail.com" });
+let item2 = User.create({ name: "Hacer", surname: "Karaosmanoglu", email: "hacerz@gmail.com" });
+
+let items = [item1, item2];
 
 app.set("view engine", "ejs");
 
@@ -33,13 +43,16 @@ app.get("/", function(req, res) {
 
     // Calling EJS file to render.
     res.render("list", {
-        kindOfDay: day, newListItems: items, uppertitle: hze});
+        kindOfDay: day, newListItems: items});
 
 });
 
 app.post("/", function(req, res) {
-    let item = req.body.newItem;
+    let name = req.body.exampleInputName;
+    let surname = req.body.exampleInputSurname;
+    let email = req.body.exampleInputEmail;
 
+    let item = User.create({ name: name, surname: surname, email: email }); 
     items.push(item);
 
     res.redirect("/");
